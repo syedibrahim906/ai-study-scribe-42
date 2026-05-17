@@ -16,6 +16,11 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardUploadRouteImport } from './routes/dashboard.upload'
+import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
+import { Route as DashboardQuizRouteImport } from './routes/dashboard.quiz'
+import { Route as DashboardPlannerRouteImport } from './routes/dashboard.planner'
+import { Route as DashboardHandwritingRouteImport } from './routes/dashboard.handwriting'
+import { Route as DashboardFlashcardsRouteImport } from './routes/dashboard.flashcards'
 import { Route as DashboardChatRouteImport } from './routes/dashboard.chat'
 import { Route as DashboardAssignmentsRouteImport } from './routes/dashboard.assignments'
 
@@ -54,6 +59,31 @@ const DashboardUploadRoute = DashboardUploadRouteImport.update({
   path: '/upload',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardQuizRoute = DashboardQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardPlannerRoute = DashboardPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardHandwritingRoute = DashboardHandwritingRouteImport.update({
+  id: '/handwriting',
+  path: '/handwriting',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardFlashcardsRoute = DashboardFlashcardsRouteImport.update({
+  id: '/flashcards',
+  path: '/flashcards',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardChatRoute = DashboardChatRouteImport.update({
   id: '/chat',
   path: '/chat',
@@ -73,6 +103,11 @@ export interface FileRoutesByFullPath {
   '/signup': typeof SignupRoute
   '/dashboard/assignments': typeof DashboardAssignmentsRoute
   '/dashboard/chat': typeof DashboardChatRoute
+  '/dashboard/flashcards': typeof DashboardFlashcardsRoute
+  '/dashboard/handwriting': typeof DashboardHandwritingRoute
+  '/dashboard/planner': typeof DashboardPlannerRoute
+  '/dashboard/quiz': typeof DashboardQuizRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -83,6 +118,11 @@ export interface FileRoutesByTo {
   '/signup': typeof SignupRoute
   '/dashboard/assignments': typeof DashboardAssignmentsRoute
   '/dashboard/chat': typeof DashboardChatRoute
+  '/dashboard/flashcards': typeof DashboardFlashcardsRoute
+  '/dashboard/handwriting': typeof DashboardHandwritingRoute
+  '/dashboard/planner': typeof DashboardPlannerRoute
+  '/dashboard/quiz': typeof DashboardQuizRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard': typeof DashboardIndexRoute
 }
@@ -95,6 +135,11 @@ export interface FileRoutesById {
   '/signup': typeof SignupRoute
   '/dashboard/assignments': typeof DashboardAssignmentsRoute
   '/dashboard/chat': typeof DashboardChatRoute
+  '/dashboard/flashcards': typeof DashboardFlashcardsRoute
+  '/dashboard/handwriting': typeof DashboardHandwritingRoute
+  '/dashboard/planner': typeof DashboardPlannerRoute
+  '/dashboard/quiz': typeof DashboardQuizRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/upload': typeof DashboardUploadRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -108,6 +153,11 @@ export interface FileRouteTypes {
     | '/signup'
     | '/dashboard/assignments'
     | '/dashboard/chat'
+    | '/dashboard/flashcards'
+    | '/dashboard/handwriting'
+    | '/dashboard/planner'
+    | '/dashboard/quiz'
+    | '/dashboard/settings'
     | '/dashboard/upload'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
@@ -118,6 +168,11 @@ export interface FileRouteTypes {
     | '/signup'
     | '/dashboard/assignments'
     | '/dashboard/chat'
+    | '/dashboard/flashcards'
+    | '/dashboard/handwriting'
+    | '/dashboard/planner'
+    | '/dashboard/quiz'
+    | '/dashboard/settings'
     | '/dashboard/upload'
     | '/dashboard'
   id:
@@ -129,6 +184,11 @@ export interface FileRouteTypes {
     | '/signup'
     | '/dashboard/assignments'
     | '/dashboard/chat'
+    | '/dashboard/flashcards'
+    | '/dashboard/handwriting'
+    | '/dashboard/planner'
+    | '/dashboard/quiz'
+    | '/dashboard/settings'
     | '/dashboard/upload'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
@@ -192,6 +252,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardUploadRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/quiz': {
+      id: '/dashboard/quiz'
+      path: '/quiz'
+      fullPath: '/dashboard/quiz'
+      preLoaderRoute: typeof DashboardQuizRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/planner': {
+      id: '/dashboard/planner'
+      path: '/planner'
+      fullPath: '/dashboard/planner'
+      preLoaderRoute: typeof DashboardPlannerRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/handwriting': {
+      id: '/dashboard/handwriting'
+      path: '/handwriting'
+      fullPath: '/dashboard/handwriting'
+      preLoaderRoute: typeof DashboardHandwritingRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/flashcards': {
+      id: '/dashboard/flashcards'
+      path: '/flashcards'
+      fullPath: '/dashboard/flashcards'
+      preLoaderRoute: typeof DashboardFlashcardsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/chat': {
       id: '/dashboard/chat'
       path: '/chat'
@@ -212,6 +307,11 @@ declare module '@tanstack/react-router' {
 interface DashboardRouteChildren {
   DashboardAssignmentsRoute: typeof DashboardAssignmentsRoute
   DashboardChatRoute: typeof DashboardChatRoute
+  DashboardFlashcardsRoute: typeof DashboardFlashcardsRoute
+  DashboardHandwritingRoute: typeof DashboardHandwritingRoute
+  DashboardPlannerRoute: typeof DashboardPlannerRoute
+  DashboardQuizRoute: typeof DashboardQuizRoute
+  DashboardSettingsRoute: typeof DashboardSettingsRoute
   DashboardUploadRoute: typeof DashboardUploadRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
@@ -219,6 +319,11 @@ interface DashboardRouteChildren {
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardAssignmentsRoute: DashboardAssignmentsRoute,
   DashboardChatRoute: DashboardChatRoute,
+  DashboardFlashcardsRoute: DashboardFlashcardsRoute,
+  DashboardHandwritingRoute: DashboardHandwritingRoute,
+  DashboardPlannerRoute: DashboardPlannerRoute,
+  DashboardQuizRoute: DashboardQuizRoute,
+  DashboardSettingsRoute: DashboardSettingsRoute,
   DashboardUploadRoute: DashboardUploadRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
